@@ -43,26 +43,6 @@ def minimax(depth, board, alpha, beta, is_maximizing):
                 return bestMove
         return bestMove
 
-
-def calculateMove(board):
-    possible_moves = board.legal_moves
-    if(len(possible_moves) == 0):
-        print("No more possible moves...Game Over")
-        sys.exit()
-    bestMove = None
-    bestValue = -9999
-    n = 0
-    for x in possible_moves:
-        move = chess.Move.from_uci(str(x))
-        board.push(move)
-        boardValue = -evaluation(board)
-        board.pop()
-        if(boardValue > bestValue):
-            bestValue = boardValue
-            bestMove = move
-
-    return bestMove
-
 def evaluation(board):
     i = 0
     evaluation = 0
